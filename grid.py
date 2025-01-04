@@ -1,4 +1,6 @@
 import random
+from app import process_neighbor
+from grid_printer import process_grid, print_key
 
 def gridMaker(cols, rows):
 	tile_type = [0, # Land
@@ -25,11 +27,12 @@ def gridMaker(cols, rows):
 		for dy, dx in directions:
 			#Calculate neighbors coords
 			new_y, new_x = y + dy, x + dx
-		
-			if 0 <= new_y < rows and 0 <= new_x , cols:
-				neighbor_tile = arr[new_y][new_x]
-			
-			if neighbor_tile == 0 and arr[y][x] == 0:
+			if 0 <= new_y < rows and 0 <= new_x < cols:
+				process_neighbor(arr, y, x, new_y, new_x)
+
+	return arr
 
 
-gridMaker(15, 15)
+grid = gridMaker(15, 15)
+process_grid(grid)
+print_key()
