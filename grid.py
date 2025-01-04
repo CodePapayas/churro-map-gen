@@ -52,6 +52,8 @@ def gridMaker(cols, rows):
     return arr
 
 # Create and process a 15x15 grid
-grid = gridMaker(15, 15)
+columns = input("Enter the number of columns: ")
+rows = input("Enter the number of rows: ")
+grid = gridMaker(int(columns), int(rows))
 process_grid(grid)
 print_key()
